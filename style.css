@@ -1,0 +1,13 @@
+h1{
+    height: 30px;
+    color: blue;
+}
+.box{
+    height: 50px;
+    width: 35%;
+/*    padding: 5px;*/
+    background-color: black;
+}
+body{
+    background-color: #262626;
+}
