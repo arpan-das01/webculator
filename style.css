@@ -46,14 +46,16 @@ h1{
     background-color: black;
 }
 
-.buttons{
+.button{
     display: flex;
     justify-content: center;
     align-items: center;
 
     font-size: xx-large;
+    font-family: inherit;
     background-color: #1f1f21;
+    border: none;
     color: white;
-    /*border: 1px solid red; */
+    /*border: 1px solid red;*/ 
     border-radius: 10px;
 }
