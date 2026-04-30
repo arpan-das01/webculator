@@ -6,14 +6,18 @@ let valueInDisplay = ""; // contains string of numbers and operations on display
 function modifyString(event){ // modifies valueInDisplay
     if(event.target.dataset.action === undefined)
         valueInDisplay += event.target.dataset.value;
+    else if(valueInDisplay === "" && event.target.dataset.action === '-') // allows negative numbers
+        valueInDisplay += event.target.dataset.action; 
     else if(valueInDisplay === "")
-        return;
+        return; // prevents clicking operator first
     else if(event.target.dataset.action === "clear")
         clearDisplay();
     else if(event.target.dataset.action === '=')
         calculate();
+    else if(valueInDisplay.length === 1 && operators.includes(valueInDisplay[valueInDisplay.length - 1]))
+        return; // prevents clicking operators after clicking '-'
     else if(operators.includes(valueInDisplay[valueInDisplay.length - 1])){
-        valueInDisplay = valueInDisplay.slice(0, -1); // prevents double operator inputs
+        valueInDisplay = valueInDisplay.slice(0, -1); // prevents double operator inputs by replacement
         valueInDisplay += event.target.dataset.action;
     }
     else
@@ -39,7 +43,8 @@ function calculate(){
             valueInDisplay = "Error!";
         else
             valueInDisplay = String(result);
-    }catch(error){
-        valueInDisplay = "Syntax Error!"
+    }
+    catch{
+        valueInDisplay = "Syntax Error!";
     }
 }
