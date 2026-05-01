@@ -2,6 +2,7 @@ const display = document.querySelector(".calculator_display");
 const button = document.querySelectorAll(".button");
 const operators = ['+', '-', '*', '/'];
 let valueInDisplay = ""; // contains string of numbers and operations on display
+let hasError = 0; // 0=no error, 1=syntax error, 2=error
 
 function modifyString(event){ // modifies valueInDisplay
     if(event.target.dataset.action === undefined)
@@ -23,7 +24,7 @@ function modifyString(event){ // modifies valueInDisplay
     else
         valueInDisplay += event.target.dataset.action;
 
-    display.textContent = valueInDisplay;
+    updateDisplay(hasError);
 }
 
 button.forEach(butn => {
@@ -40,11 +41,26 @@ function calculate(){
     try{
         let result = eval(valueInDisplay);
         if(!isFinite(result))
-            valueInDisplay = "Error!";
+            hasError = 2;
         else
             valueInDisplay = String(result);
     }
     catch{
-        valueInDisplay = "Syntax Error!";
+        hasError = 1; // syntax error
     }
+}
+
+function updateDisplay(errorCode){
+    if(errorCode === 1){
+        display.textContent = "Syntax Error!";
+        valueInDisplay = "";
+        hasError = 0;
+    }
+    else if(errorCode === 2){
+        display.textContent = "Error!";
+        valueInDisplay = "";
+        hasError = 0;
+    }
+    else
+        display.textContent = valueInDisplay;
 }
