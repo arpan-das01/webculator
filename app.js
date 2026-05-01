@@ -27,10 +27,6 @@ function modifyString(event){ // modifies valueInDisplay
     updateDisplay(hasError);
 }
 
-button.forEach(butn => {
-    butn.addEventListener('click', modifyString);
-});
-
 function clearDisplay(){
     valueInDisplay = "";
 }
@@ -64,3 +60,7 @@ function updateDisplay(errorCode){
     else
         display.textContent = valueInDisplay;
 }
+
+button.forEach(butn => {
+    butn.addEventListener('click', modifyString);
+});
