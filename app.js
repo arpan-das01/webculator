@@ -1,6 +1,7 @@
 const display = document.querySelector(".calculator_display");
 const button = document.querySelectorAll(".button");
 const operators = ['+', '-', '*', '/'];
+const digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 let valueInDisplay = ""; // contains string of numbers and operations on display
 let errorFlag = 0; // 0=no error, 1=syntax error, 2=error
 
@@ -66,4 +67,19 @@ button.forEach(butn => { // handles mouse clicks
         let input = event.target.dataset.value || event.target.dataset.action;
         modifyString(input);
     });
+});
+
+document.addEventListener('keydown', (event) => { // handles keyboard inputs
+    let input = event.key;
+
+    if(input === "Escape" || input === "Delete")
+        input = "clear";
+    else if(input === "Enter" || input === '='){
+        event.preventDefault();
+        input = '=';
+    }
+    else if(!digits.includes(input) && !operators.includes(input))
+        return; // skips keys not related to UI buttons
+
+    modifyString(input);
 });
