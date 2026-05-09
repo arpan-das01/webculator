@@ -72,12 +72,13 @@ button.forEach(butn => { // handles mouse clicks
 document.addEventListener('keydown', (event) => { // handles keyboard inputs
     let input = event.key;
 
+    if(input === "Enter" || input === '/') // / prevents firefox quick find
+        event.preventDefault(); // Enter prevents focus on a button after clicks
+
     if(input === "Escape" || input === "Delete")
         input = "clear";
-    else if(input === "Enter" || input === '='){
-        event.preventDefault();
+    else if(input === "Enter" || input === '=')
         input = '=';
-    }
     else if(!digits.includes(input) && !operators.includes(input))
         return; // skips keys not related to UI buttons
 
