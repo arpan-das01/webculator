@@ -3,6 +3,10 @@ body{
     font-family: sans-serif;
 }
 
+div{
+    box-sizing: border-box;
+}
+
 h1{
     color: #9eb8e8;
     /*border: 1px solid yellow;*/
@@ -25,16 +29,16 @@ h1{
 
 .calculator_body{
     display: grid;
-    grid-template-rows: repeat(6, 100px); /*first 2 are for display*/
-    grid-template-columns: repeat(4, 90px);
-    justify-content: space-evenly;
-    align-content: space-evenly;
+    grid-template-rows: repeat(6, 1fr); /*first 2 are for display*/
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
 
     height: 660px;
     width: 400px;
     background-color: #303033;
     margin: 30px auto 20px;
     border-radius: 15px;
+    padding: 7px;
     /*border: 1px solid green;*/
 }
 
