@@ -9,6 +9,8 @@ div{
 
 h1{
     color: #9eb8e8;
+    /*min-width: 0;
+    min-height: 0;*/
     /*border: 1px solid yellow;*/
 }
 
@@ -17,13 +19,18 @@ h1{
     justify-content: center;
     align-items: center;
     
-    width: 400px;
-    height: 80px;
+    width: clamp(50px, 50vw, 450px);
+    height: clamp(24px, 10vh, 216px);
+    /*aspect-ratio: 400 / 80;*/
     margin: 0 auto;
-    border-radius: 10px;
+    border-radius: clamp(3px, 1.7vh, 27px);
     background-color: black;
     /*border: 1px solid purple;*/
-} 
+}
+
+.project_name h1{
+    flex-shrink: 1;
+}
 
 /* added borders temporarily to visualize sizes */
 
@@ -31,14 +38,17 @@ h1{
     display: grid;
     grid-template-rows: repeat(6, 1fr); /*first 2 are for display*/
     grid-template-columns: repeat(4, 1fr);
-    gap: 7px;
+    gap: clamp(1.4px, 0.8vh, 13px);
 
-    height: 660px;
-    width: 400px;
+    /*min-width: 0;*/
+    /*height: min(660px, 75vh);*/
+    /*width: 400px;*/
+    height: clamp(180px, 75vh, 1620px);
+    aspect-ratio: 400 / 660;
     background-color: #303033;
-    margin: 30px auto 20px;
-    border-radius: 15px;
-    padding: 7px;
+    margin: clamp(12px, 2.5vh, 54px) auto;
+    border-radius: clamp(3px, 1.7vh, 27px);
+    padding: clamp(1.4px, 0.8vh, 13px);
     /*border: 1px solid green;*/
 }
 
@@ -50,9 +60,10 @@ h1{
     align-items: center;
 
    /* border: 1px solid blue; */
-    font-size: xx-large;
-    padding: 10%;
-    border-radius: 15px;
+    font-family: inherit; 
+    font-size: clamp(6.4px, 4vh, 57.6px);
+    padding: 8%;
+    border-radius: clamp(3px, 1.7vh, 27px);
     background-color: black;
     color: white;
 }
@@ -62,13 +73,13 @@ h1{
     justify-content: center;
     align-items: center;
 
-    font-size: xx-large;
+    font-size: clamp(6.4px, 4vh, 57.6px);
     font-family: inherit;
     background-color: #1f1f21;
     border: none;
     color: white;
     /*border: 1px solid red;*/ 
-    border-radius: 10px;
+    border-radius: clamp(3px, 1.7vh, 27px);
 }
 
 button:hover{
