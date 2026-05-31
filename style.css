@@ -9,8 +9,7 @@ div{
 
 h1{
     color: #9eb8e8;
-    /*min-width: 0;
-    min-height: 0;*/
+    font-size: clamp(1.5rem, 2rem, 2.5rem);
     /*border: 1px solid yellow;*/
 }
 
@@ -19,17 +18,13 @@ h1{
     justify-content: center;
     align-items: center;
     
-    width: clamp(50px, 50vw, 450px);
+    width: min(380px, 92vw);
     height: clamp(24px, 10vh, 216px);
     /*aspect-ratio: 400 / 80;*/
     margin: 0 auto;
     border-radius: clamp(3px, 1.7vh, 27px);
     background-color: black;
     /*border: 1px solid purple;*/
-}
-
-.project_name h1{
-    flex-shrink: 1;
 }
 
 /* added borders temporarily to visualize sizes */
@@ -40,9 +35,6 @@ h1{
     grid-template-columns: repeat(4, 1fr);
     gap: clamp(1.4px, 0.8vh, 13px);
 
-    /*min-width: 0;*/
-    /*height: min(660px, 75vh);*/
-    /*width: 400px;*/
     height: clamp(180px, 75vh, 1620px);
     aspect-ratio: 400 / 660;
     background-color: #303033;
@@ -83,5 +75,5 @@ h1{
 }
 
 button:hover{
-    box-shadow: 0px 0px 1px 1px #414145;
+    box-shadow: 0px 0px 1px 0.1vh #414145;
 }
