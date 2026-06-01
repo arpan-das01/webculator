@@ -13,6 +13,8 @@ Supports the four basic arithmetic operations:
 - Subtraction
 - Multiplication
 - Division
+- Keyboard Support
+- Responsive UI
 
 ## Usage
 
@@ -20,6 +22,5 @@ Clone the repo and open `index.html` in any browser — no build step required.
 
 ## Future Improvements
 
-- Keyboard input support
 - Additional buttons
 - Replace `eval()` with a stack-based `calculate()` function
